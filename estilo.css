@@ -1,63 +1,128 @@
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
+body {
+    font-family: sans-serif;
+    background-color: #5a0909;
+    padding: 0;
 }
 
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 2px solid black;
-    padding: 10px;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-
-.header{
+.header {
+    background-color: #df6969;
+    height: 180px;
     width: 100%;
-    height: 100px;
-    background-color: #e0e0e0;
-    margin-bottom: 10px;
-    border: 1px solid black;
-}
-
-.content{
+    margin-bottom: 20px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
-.side-panel{
-    flex: 0 0 300px;
-    height: 400px;
-    background-color: #e0e0e0;
-    border: 1px solid black;
-
+.sidebar {
+    width: 250px;
+    min-height: 500px;
+    background-color: #5f1616;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.center-content{
+.sidebar.left {
+    order: 1;
+}
+
+.sidebar.right {
+    order: 3;
+}
+
+.center {
     flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    order: 2;
 }
 
-.box{
-    flex: 1 1 250px;
-    height: 195px;
-    background-color: #e0e0e0;
-    border: 1px solid black;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(2, 250px);
+    gap: 50px;
 }
 
-@media(max-width: 992px){
-    .content{
+.box {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    background-color: #812626; /* cor de fundo caso a imagem não carregue */
+    border-radius: 8px; /* opcional, para bordas arredondadas */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
         flex-direction: column;
+        align-items: center;
     }
 
-    .side-panel,
-    .center-content{
+    .sidebar {
         width: 100%;
-        flex: none;
+        min-height: 100px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 100px);
+        grid-template-rows: repeat(2, 100px);
+        gap: 20px;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ---------------- Tablet ---------------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .sidebar {
+        width: 200px;
+        min-height: 400px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 180px);
+        grid-template-rows: repeat(2, 180px);
+        gap: 30px;
+    }
+
+    .box {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* ---------------- Celular ---------------- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 120px);
+        grid-template-rows: repeat(2, 120px);
+        gap: 20px;
+    }
+
+    .box {
+        width: 120px;
+        height: 120px;
     }
 }
